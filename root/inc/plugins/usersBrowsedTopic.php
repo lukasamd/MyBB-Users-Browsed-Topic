@@ -96,7 +96,7 @@ function usersBrowsedTopic_activate()
     usersBrowsedTopicActivator::activate();
 }
 
-function unreadPosts_deactivate()
+function usersBrowsedTopic_deactivate()
 {
     require_once('usersBrowsedTopic.tpl.php');
     usersBrowsedTopicActivator::deactivate();
