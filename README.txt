@@ -1,0 +1,1 @@
+This plugin show users who browsed thread.

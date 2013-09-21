@@ -1,0 +1,4 @@
+Version 1.1
+    * add compatibility with MyBB 1.6.5+
+    * rewrite code
+    * add option to show data only for logged in users    
