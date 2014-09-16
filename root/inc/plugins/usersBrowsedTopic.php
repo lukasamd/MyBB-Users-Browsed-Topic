@@ -53,9 +53,8 @@ function usersBrowsedTopic_info()
 		'website' => 'http://lukasztkacz.com',
 		'author' => 'Lukasz "LukasAMD" Tkacz',
 		'authorsite' => 'http://lukasztkacz.com',
-		'version' => '1.1',
-		'guid' => '8b388ce4164d9c9ef5aa8ad1bf0cc9e8',
-		'compatibility' => '16*'
+		'version' => '1.0.0',
+		'compatibility' => '18*'
 	);
 }
 
@@ -67,8 +66,6 @@ function usersBrowsedTopic_install()
 {
     require_once('usersBrowsedTopic.settings.php');
     usersBrowsedTopicInstaller::install();
-
-    rebuildsettings();
 }
 
 function usersBrowsedTopic_is_installed() 
@@ -82,8 +79,6 @@ function usersBrowsedTopic_uninstall()
 {
     require_once('usersBrowsedTopic.settings.php');
     usersBrowsedTopicInstaller::uninstall();
-
-    rebuildsettings();
 }
 
 /**
@@ -125,8 +120,7 @@ class usersBrowsedTopic
         
         $plugins->hooks["showthread_start"][10]["usersBrowsedTopic_collectData"] = array("function" => create_function('', 'global $plugins; $plugins->objects[\'usersBrowsedTopic\']->collectData();'));
         $plugins->hooks["pre_output_page"][10]["usersBrowsedTopic_modifyOutput"] = array("function" => create_function('&$arg', 'global $plugins; $plugins->objects[\'usersBrowsedTopic\']->modifyOutput($arg);'));   
-        $plugins->hooks["pre_output_page"][10]["usersBrowsedTopic_pluginThanks"] = array("function" => create_function('&$arg', 'global $plugins; $plugins->objects[\'usersBrowsedTopic\']->pluginThanks($arg);'));
-            
+        $plugins->hooks["pre_output_page"][10]["usersBrowsedTopic_pluginThanks"] = array("function" => create_function('&$arg', 'global $plugins; $plugins->objects[\'usersBrowsedTopic\']->pluginThanks($arg);'));       
     }
 
     /**

@@ -1,3 +1,8 @@
+Version 1.0.0
+    * add compatibility with MyBB 1.8+
+     
+    
+                
 Version 1.1
     * add compatibility with MyBB 1.6.5+
     * rewrite code
