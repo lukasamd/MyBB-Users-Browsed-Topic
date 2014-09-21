@@ -19,3 +19,4 @@
  */ 
 
 $l['usersBrowsedTopic'] = 'Użytkownicy, którzy przeglądali ten wątek:';
+$l['usersBrowsedTopicHover'] = 'Ostatnia wizyta: ';

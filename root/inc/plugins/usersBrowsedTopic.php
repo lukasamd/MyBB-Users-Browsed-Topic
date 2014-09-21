@@ -53,7 +53,7 @@ function usersBrowsedTopic_info()
 		'website' => 'http://lukasztkacz.com',
 		'author' => 'Lukasz "LukasAMD" Tkacz',
 		'authorsite' => 'http://lukasztkacz.com',
-		'version' => '1.0.0',
+		'version' => '1.1.0',
 		'compatibility' => '18*'
 	);
 }
@@ -134,7 +134,7 @@ class usersBrowsedTopic
         if ($mybb->user['uid'] > 0)
         {
             $db->query("INSERT IGNORE INTO " . TABLE_PREFIX . "threadsread_users
-                        SET tid = '{$tid}', uid = '{$mybb->user['uid']}'");
+                        SET tid = '{$tid}', uid = '{$mybb->user['uid']}', dateline = '" . TIME_NOW . "'");
         } 
     } 
  
@@ -156,16 +156,37 @@ class usersBrowsedTopic
         $users_list = '';
         
         // Get users list
-        $sql = "SELECT tu.uid, tu.username, tu.usergroup, tu.displaygroup
+        $order_by = 'username';
+        if (in_array($order_by, array('dateline', 'username', 'uid', 'usergroup')))
+        {
+            $order_by = $this->getConfig('OrderBy');    
+        }
+        
+        $order_asc = 'DESC';
+        if ($this->getConfig('OrderByASC'))
+        {
+            $order_asc = 'ASC';
+        }
+        
+        $sql = "SELECT tu.uid, tu.username, tu.usergroup, tu.displaygroup, tubt.dateline
                 FROM " . TABLE_PREFIX . "threadsread_users AS tubt 
                 INNER JOIN " . TABLE_PREFIX . "users AS tu ON tubt.uid = tu.uid
-                WHERE tubt.tid = '" . $tid . "'  
-                ORDER BY username";
+                WHERE tubt.tid = '{$tid}'  
+                ORDER BY {$order_by} {$order_asc}";
         $result = $db->query($sql);
         while($row = $db->fetch_array($result))
         {
             $user['profilelink'] = get_profile_link($row['uid']);
             $user['username'] = format_name($row['username'], $row['usergroup'], $row['displaygroup']);
+            
+            // Get dateline
+            $user['dateline'] = '';
+            if ($this->getConfig('TimeEnable'))
+            {
+                $user['dateline'] = my_date($this->getConfig('TimeFormat'), $user['dateline']);
+                $user['dateline'] = ' title="' . $lang->usersBrowsedTopicHover . $user['dateline'] . '"';
+            }
+            
             eval("\$users_list .= \"".$templates->get("usersBrowsedUser")."\";");
             $comma = $lang->comma;
         }

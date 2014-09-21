@@ -49,7 +49,7 @@ class usersBrowsedTopicActivator
     	self::$tpl[] = array(
     		"tid"		=> NULL,
     		"title"		=> 'usersBrowsedUser',
-    		"template"	=> $db->escape_string('{$comma}<a href="{$user[\'profilelink\']}">{$user[\'username\']}</a>'),
+    		"template"	=> $db->escape_string('{$comma}<a href="{$user[\'profilelink\']}"{$user[\'dateline\']}>{$user[\'username\']}</a>'),
     		"sid"		=> "-1",
     		"version"	=> "1.0",
     		"dateline"	=> TIME_NOW,

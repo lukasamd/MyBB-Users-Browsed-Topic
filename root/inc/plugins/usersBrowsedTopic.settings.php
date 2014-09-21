@@ -75,11 +75,64 @@ class usersBrowsedTopicInstaller
         );
         $db->insert_query('settings', $setting);
         
+        $setting = array(
+            'sid' => 'NULL',
+            'name' => 'usersBrowsedTopicTimeEnable',
+            'title' => $db->escape_string($lang->usersBrowsedTopicTimeEnable),
+            'description' => $db->escape_string($lang->usersBrowsedTopicTimeEnableDesc),
+            'optionscode' => 'onoff',
+            'value' => '1',
+            'disporder' => $disporder++,
+            'gid' => $gid
+        );
+        $db->insert_query('settings', $setting);
+        
+        $setting = array(
+            'sid' => 'NULL',
+            'name' => 'usersBrowsedTopicTimeFormat',
+            'title' => $db->escape_string($lang->usersBrowsedTopicTimeFormat),
+            'description' => $db->escape_string($lang->usersBrowsedTopicTimeFormatDesc),
+            'optionscode' => 'text',
+            'value' => $mybb->settings['timeformat'],
+            'disporder' => $disporder++,
+            'gid' => $gid
+        );
+        $db->insert_query('settings', $setting);
+        
+        $options = 'select\nusername=' . $lang->usersBrowsedTopicOrderByOptionUsername . '\n';
+        $options .= 'dateline=' . $lang->usersBrowsedTopicOrderByOptionDateline . '\n';
+        $options .= 'uid=' . $lang->usersBrowsedTopicOrderByOptionUserID . '\n';
+        $options .= 'usergroup=' . $lang->usersBrowsedTopicOrderByOptionGroup;
+        $setting = array(
+            'sid' => 'NULL',
+            'name' => 'usersBrowsedTopicOrderBy',
+            'title' => $db->escape_string($lang->usersBrowsedTopicOrderBy),
+            'description' => $db->escape_string($lang->usersBrowsedTopicOrderByDesc),
+            'optionscode' => $options,
+            'value' => '0',
+            'disporder' => $disporder++,
+            'gid' => $gid
+        );
+        $db->insert_query('settings', $setting);
+        
+        $setting = array(
+            'sid' => 'NULL',
+            'name' => 'usersBrowsedTopicOrderByASC',
+            'title' => $db->escape_string($lang->usersBrowsedTopicOrderByASC),
+            'description' => $db->escape_string($lang->usersBrowsedTopicOrderByASCDesc),
+            'optionscode' => 'onoff',
+            'value' => '1',
+            'disporder' => $disporder++,
+            'gid' => $gid
+        );
+        $db->insert_query('settings', $setting);
+        
         if(!$db->table_exists('threadsread_users'))
         {
             $sql = "CREATE TABLE " . TABLE_PREFIX . "threadsread_users(
                     tid INT UNSIGNED NOT NULL,
                     uid INT UNSIGNED NOT NULL,
+                    dateline INT UNSIGNED NOT NULL,
                     UNIQUE KEY (tid, uid));";
             $db->query($sql);
         }

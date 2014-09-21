@@ -18,4 +18,6 @@
  *
  */ 
 
-$l['usersBrowsedTopic'] = 'User(s) browsed this thread:';
+$l['usersBrowsedTopic'] = 'Users browsed this thread:';
+$l['usersBrowsedTopicHover'] = 'Last visit: ';
+

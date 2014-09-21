@@ -28,3 +28,20 @@ $l['usersBrowsedTopicEnableDesc'] = 'Określa, czy plugin ma zbierać informacje
 
 $l['usersBrowsedTopicVisibleUsers'] = 'Dane tylko dla zalogowanych';
 $l['usersBrowsedTopicVisibleUsersDesc'] = 'Jeżeli aktywne, informacje o tym kto przeglądał temat będą dostęne tylko dla zalogowanych użytkowników.';
+
+$l['usersBrowsedTopicTimeEnable'] = 'Wyświetlanie czasu ostatniej wizyty';
+$l['usersBrowsedTopicTimeEnableDesc'] = 'Jeżeli włączono, po najechaniu na nick będzie wyświetlana data ostatniej wizyty w temacie.';
+
+$l['usersBrowsedTopicTimeFormat'] = 'Format czasu ostatniej wizyty';
+$l['usersBrowsedTopicTimeFormatDesc'] = 'Format wyświetlania czasu ostatniej wizyty użytkownika (zgodny z funkcją my_date).';
+
+$l['usersBrowsedTopicOrderBy'] = 'Sortuj listę użytkowników po:';
+$l['usersBrowsedTopicOrderByDesc'] = 'Lista użytkowników, którzy przeglądali temat będzie sortowana po:.';
+
+$l['usersBrowsedTopicOrderByOptionUsername'] = 'Nazwie użytkownika';
+$l['usersBrowsedTopicOrderByOptionDateline'] = 'Dacie ostatniej wizyty';
+$l['usersBrowsedTopicOrderByOptionUserID'] = 'Numerze użytkownika (UID)';
+$l['usersBrowsedTopicOrderByOptionGroup'] = 'Numerze grupy użytkownika (GID)';
+
+$l['usersBrowsedTopicOrderByASC'] = 'Sortowanie rosnące';
+$l['usersBrowsedTopicOrderByASCDesc'] = 'Jeżeli włączono, sortowania będzie rosnące. W przeciwnym wypadku stosowane jest sortowanie malejące.';
