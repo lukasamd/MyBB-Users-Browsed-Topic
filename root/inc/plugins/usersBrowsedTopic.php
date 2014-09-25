@@ -53,7 +53,7 @@ function usersBrowsedTopic_info()
 		'website' => 'http://lukasztkacz.com',
 		'author' => 'Lukasz "LukasAMD" Tkacz',
 		'authorsite' => 'http://lukasztkacz.com',
-		'version' => '1.1.0',
+		'version' => '1.1.1',
 		'compatibility' => '18*'
 	);
 }
@@ -183,7 +183,7 @@ class usersBrowsedTopic
             $user['dateline'] = '';
             if ($this->getConfig('TimeEnable'))
             {
-                $user['dateline'] = my_date($this->getConfig('TimeFormat'), $user['dateline']);
+                $user['dateline'] = my_date($this->getConfig('TimeFormat'), $row['dateline']);
                 $user['dateline'] = ' title="' . $lang->usersBrowsedTopicHover . $user['dateline'] . '"';
             }
             

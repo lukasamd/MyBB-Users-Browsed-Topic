@@ -109,7 +109,7 @@ class usersBrowsedTopicInstaller
             'title' => $db->escape_string($lang->usersBrowsedTopicOrderBy),
             'description' => $db->escape_string($lang->usersBrowsedTopicOrderByDesc),
             'optionscode' => $options,
-            'value' => '0',
+            'value' => 'username',
             'disporder' => $disporder++,
             'gid' => $gid
         );

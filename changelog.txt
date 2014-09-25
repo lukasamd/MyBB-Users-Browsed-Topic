@@ -1,3 +1,9 @@
+Version 1.1.1
+    * fix SQL bug (no default select value)
+    * fix date info on hover (invalid variable name)          
+     
+    
+ 
 Version 1.1.0
     * add option to display last visit time on mouse hover
     * add option to sort list by username, UID, GID and visit date
