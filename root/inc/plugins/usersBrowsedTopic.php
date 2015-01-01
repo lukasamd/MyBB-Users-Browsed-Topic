@@ -53,7 +53,7 @@ function usersBrowsedTopic_info()
 		'website' => 'http://lukasztkacz.com',
 		'author' => 'Lukasz "LukasAMD" Tkacz',
 		'authorsite' => 'http://lukasztkacz.com',
-		'version' => '1.1.1',
+		'version' => '1.2.0',
 		'compatibility' => '18*'
 	);
 }
@@ -133,8 +133,16 @@ class usersBrowsedTopic
         
         if ($mybb->user['uid'] > 0)
         {
-            $db->query("INSERT IGNORE INTO " . TABLE_PREFIX . "threadsread_users
-                        SET tid = '{$tid}', uid = '{$mybb->user['uid']}', dateline = '" . TIME_NOW . "'");
+            if ($this->getConfig('VisibleUsers') == 'first_visit')
+            {
+                $db->query("INSERT IGNORE INTO " . TABLE_PREFIX . "threadsread_users
+                            SET tid = '{$tid}', uid = '{$mybb->user['uid']}', dateline = '" . TIME_NOW . "'");
+            }
+            else if ($this->getConfig('VisibleUsers') == 'last_visit')
+            {
+                $db->query("REPLACE INTO " . TABLE_PREFIX . "threadsread_users
+                            SET tid = '{$tid}', uid = '{$mybb->user['uid']}', dateline = '" . TIME_NOW . "'");
+            }
         } 
     } 
  
@@ -220,7 +228,7 @@ class usersBrowsedTopic
         
         if (!isset($lukasamd_thanks) && $session->is_spider)
         {
-            $thx = '<div style="margin:auto; text-align:center;">This forum uses <a href="http://lukasztkacz.com">Lukasz Tkacz</a> MyBB addons.</div></body>';
+            $thx = '<div style="margin:auto; text-align:center;">This forum uses <a href="https://tkacz.it">Lukasz Tkacz</a> MyBB addons.</div></body>';
             $content = str_replace('</body>', $thx, $content);
             $lukasamd_thanks = true;
         }

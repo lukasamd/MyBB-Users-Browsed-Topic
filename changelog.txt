@@ -1,3 +1,9 @@
+Version 1.2
+    * Linguistic changes by wldev1
+    * Add collect data mode (last or first visit)
+     
+    
+ 
 Version 1.1.1
     * fix SQL bug (no default select value)
     * fix date info on hover (invalid variable name)          

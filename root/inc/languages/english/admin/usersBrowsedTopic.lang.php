@@ -32,6 +32,12 @@ $l['usersBrowsedTopicVisibleUsersDesc'] = 'If enabled, who browsed thread data w
 $l['usersBrowsedTopicTimeEnable'] = 'Display last visit time on hover';
 $l['usersBrowsedTopicTimeEnableDesc'] = 'If enabled, user last visit time will be displayed on username mouse hover.';
 
+$l['usersBrowsedTopicMode'] = 'Collect data mode';
+$l['usersBrowsedTopicModeDesc'] = 'Specifies what thread browsing time should be write to database.';
+
+$l['usersBrowsedTopicModeOptionLast'] = 'Last visit';
+$l['usersBrowsedTopicModeOptionFirst'] = 'First visit';
+
 $l['usersBrowsedTopicTimeFormat'] = 'Last visit time format';
 $l['usersBrowsedTopicTimeFormatDesc'] = 'Time format for last visit time (script use my_date function).';
 

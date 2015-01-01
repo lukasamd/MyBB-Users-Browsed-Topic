@@ -75,6 +75,20 @@ class usersBrowsedTopicInstaller
         );
         $db->insert_query('settings', $setting);
         
+        $options = 'select\nlast_visit=' . $lang->usersBrowsedTopicModeOptionLast . '\n';
+        $options .= 'first_visit=' . $lang->usersBrowsedTopicModeOptionFirst;
+        $setting = array(
+            'sid' => 'NULL',
+            'name' => 'usersBrowsedTopicMode',
+            'title' => $db->escape_string($lang->usersBrowsedTopicMode),
+            'description' => $db->escape_string($lang->usersBrowsedTopicModeDesc),
+            'optionscode' => $options,
+            'value' => 'last_visit',
+            'disporder' => $disporder++,
+            'gid' => $gid
+        );
+        $db->insert_query('settings', $setting);
+        
         $setting = array(
             'sid' => 'NULL',
             'name' => 'usersBrowsedTopicTimeEnable',
@@ -98,6 +112,7 @@ class usersBrowsedTopicInstaller
             'gid' => $gid
         );
         $db->insert_query('settings', $setting);
+        
         
         $options = 'select\nusername=' . $lang->usersBrowsedTopicOrderByOptionUsername . '\n';
         $options .= 'dateline=' . $lang->usersBrowsedTopicOrderByOptionDateline . '\n';

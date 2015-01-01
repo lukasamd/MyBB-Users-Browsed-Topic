@@ -29,8 +29,14 @@ $l['usersBrowsedTopicEnableDesc'] = 'Określa, czy plugin ma zbierać informacje
 $l['usersBrowsedTopicVisibleUsers'] = 'Dane tylko dla zalogowanych';
 $l['usersBrowsedTopicVisibleUsersDesc'] = 'Jeżeli aktywne, informacje o tym kto przeglądał temat będą dostęne tylko dla zalogowanych użytkowników.';
 
-$l['usersBrowsedTopicTimeEnable'] = 'Wyświetlanie czasu ostatniej wizyty';
-$l['usersBrowsedTopicTimeEnableDesc'] = 'Jeżeli włączono, po najechaniu na nick będzie wyświetlana data ostatniej wizyty w temacie.';
+$l['usersBrowsedTopicTimeEnable'] = 'Wyświetlanie czasu wizyty';
+$l['usersBrowsedTopicTimeEnableDesc'] = 'Jeżeli włączono, po najechaniu na nick będzie wyświetlana data wizyty w temacie.';
+
+$l['usersBrowsedTopicMode'] = 'Tryb zbierania danych';
+$l['usersBrowsedTopicModeDesc'] = 'Określa, jaki czas przeglądania tematu ma być rejestrowany w bazie.';
+
+$l['usersBrowsedTopicModeOptionLast'] = 'Ostatnia wizyta';
+$l['usersBrowsedTopicModeOptionFirst'] = 'Pierwsza wizyta';
 
 $l['usersBrowsedTopicTimeFormat'] = 'Format czasu ostatniej wizyty';
 $l['usersBrowsedTopicTimeFormatDesc'] = 'Format wyświetlania czasu ostatniej wizyty użytkownika (zgodny z funkcją my_date).';
