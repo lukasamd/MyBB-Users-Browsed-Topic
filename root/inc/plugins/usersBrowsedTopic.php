@@ -50,9 +50,9 @@ function usersBrowsedTopic_info()
 	return Array(
 		'name' => $lang->usersBrowsedTopicName,
 		'description' => $lang->usersBrowsedTopicDesc,
-		'website' => 'http://lukasztkacz.com',
+		'website' => 'https://tkacz.it',
 		'author' => 'Lukasz "LukasAMD" Tkacz',
-		'authorsite' => 'http://lukasztkacz.com',
+		'authorsite' => 'https://tkacz.it',
 		'version' => '1.2.0',
 		'compatibility' => '18*'
 	);
@@ -133,12 +133,12 @@ class usersBrowsedTopic
         
         if ($mybb->user['uid'] > 0)
         {
-            if ($this->getConfig('VisibleUsers') == 'first_visit')
+            if ($this->getConfig('Mode') == 'first_visit')
             {
                 $db->query("INSERT IGNORE INTO " . TABLE_PREFIX . "threadsread_users
                             SET tid = '{$tid}', uid = '{$mybb->user['uid']}', dateline = '" . TIME_NOW . "'");
             }
-            else if ($this->getConfig('VisibleUsers') == 'last_visit')
+            else if ($this->getConfig('Mode') == 'last_visit')
             {
                 $db->query("REPLACE INTO " . TABLE_PREFIX . "threadsread_users
                             SET tid = '{$tid}', uid = '{$mybb->user['uid']}', dateline = '" . TIME_NOW . "'");
