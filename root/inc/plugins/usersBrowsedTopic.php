@@ -39,21 +39,13 @@ function usersBrowsedTopic_info()
 	global $lang;
 
 	$lang->load("usersBrowsedTopic");
-    $lang->usersBrowsedTopicDesc = '<form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="float:right;">' .
-        '<input type="hidden" name="cmd" value="_s-xclick">' . 
-        '<input type="hidden" name="hosted_button_id" value="3BTVZBUG6TMFQ">' .
-        '<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_SM.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">' .
-        '<img alt="" border="0" src="https://www.paypalobjects.com/pl_PL/i/scr/pixel.gif" width="1" height="1">' .
-        '</form>' . $lang->usersBrowsedTopicDesc;
-    
-
 	return Array(
 		'name' => $lang->usersBrowsedTopicName,
 		'description' => $lang->usersBrowsedTopicDesc,
-		'website' => 'https://tkacz.it',
-		'author' => 'Lukasz "LukasAMD" Tkacz',
-		'authorsite' => 'https://tkacz.it',
-		'version' => '1.2.0',
+		'website' => 'https://tkacz.pro',
+		'author' => 'Lukasz Tkacz',
+		'authorsite' => 'https://tkacz.pro',
+		'version' => '1.3.0',
 		'compatibility' => '18*'
 	);
 }
@@ -131,7 +123,7 @@ class usersBrowsedTopic
     {
         global $db, $mybb, $tid;
         
-        if ($mybb->user['uid'] > 0)
+        if ($mybb->user['uid'] > 0 && $mybb->user['invisible'] == 0)
         {
             if ($this->getConfig('Mode') == 'first_visit')
             {
@@ -200,6 +192,7 @@ class usersBrowsedTopic
         }
 
         // Replace output code
+        $users_list = str_replace(PHP_EOL, '', $users_list);
         eval("\$output .= \"".$templates->get("usersBrowsed")."\";");
         $content = str_replace('<!-- PLUGIN_USERS_BROWSED_TOPIC -->', $output, $content);
     } 
@@ -228,7 +221,7 @@ class usersBrowsedTopic
         
         if (!isset($lukasamd_thanks) && $session->is_spider)
         {
-            $thx = '<div style="margin:auto; text-align:center;">This forum uses <a href="https://tkacz.it">Lukasz Tkacz</a> MyBB addons.</div></body>';
+            $thx = '<div style="margin:auto; text-align:center;">This forum uses <a href="https://tkacz.pro">Lukasz Tkacz PHP Developer</a> addons.</div></body>';
             $content = str_replace('</body>', $thx, $content);
             $lukasamd_thanks = true;
         }
