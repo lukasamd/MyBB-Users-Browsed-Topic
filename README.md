@@ -1,3 +1,10 @@
+# Plugin is abandoned
+I decided to stop developling MyBB addons. You can find details here:
+https://github.com/lukasamd/MyBB-View_Unread_posts/issues/25
+
+---
+
+
 This plugin shows users who viewed thread.
 It adds additional list after "Users browsing this thread".
 
